@@ -123,10 +123,10 @@ run.font.size = Pt(12)
 table.cell(0, 0).paragraphs[0].runs[0].bold = True
 
 # Carpeta de archivos HTML
-ruta_carpeta_html = "C:/Users/acapaizlo/Desktop/Abril"
+ruta_carpeta_html = "C:/Users/acapaizlo/Desktop/Mayo"
 
 # Carpeta de imágenes
-ruta_carpeta_imagenes = "C:/Users/acapaizlo/Pictures/Screenshots/Abril"
+ruta_carpeta_imagenes = "C:/Users/acapaizlo/Pictures/Screenshots/Mayo"
 
 # Iterar sobre los archivos HTML
 for archivo_html in os.listdir(ruta_carpeta_html):
