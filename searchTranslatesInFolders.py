@@ -20,28 +20,25 @@ def get_json_keys(json_path):
 def find_unmatched_keys(base_path, json_path, exclude_dir):
     js_files = get_js_and_jsx_files(base_path, exclude_dir)
     json_keys = get_json_keys(json_path)
-    pattern = re.compile(r't\("([^"]+)"\)')
-
+    # Modificamos el patrón para que coincida solo con t("...") sin letras antes de la 't'
+    pattern = re.compile(r'(?<![a-zA-Z])t\("([^"]+)"\)')
     unmatched_keys = []
-
     for file in js_files:
         with open(file, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
-            for i, line in enumerate(lines):
-                matches = pattern.findall(line)
-                for match in matches:
-                    if match not in json_keys:
-                        unmatched_keys.append((file, match, i + 1))
-
+            content = f.read()
+            matches = pattern.finditer(content)
+            for match in matches:
+                key = match.group(1)
+                if key not in json_keys:
+                    line_number = content[:match.start()].count('\n') + 1
+                    unmatched_keys.append((file, key, line_number))
     return unmatched_keys
 
 def main():
-    base_path = r'C:\Users\acapaizlo\Desktop\Proyectos\React Native\1.0.4 (IOS y Android)'
-    json_path = r'C:\Users\acapaizlo\Desktop\Proyectos\React Native\1.0.4 (IOS y Android)\locales\es.json'
+    base_path = r'C:\Users\acapaizlo\Desktop\Proyectos\React Native\1.0.5 (IOS y Android) New Stepper'
+    json_path = r'C:\Users\acapaizlo\Desktop\Proyectos\React Native\1.0.5 (IOS y Android) New Stepper\locales\es.json'
     exclude_dir = os.path.join(base_path, 'node_modules')
-
     unmatched_keys = find_unmatched_keys(base_path, json_path, exclude_dir)
-
     for file, key, line in unmatched_keys:
         print(f'{file}: "{key}" on line {line}\n')
 

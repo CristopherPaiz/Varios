@@ -40,8 +40,8 @@ def find_unused_json_keys(base_path, json_path, exclude_dir):
     return unused_keys, key_usage
 
 def main():
-    base_path = r'C:\Users\acapaizlo\Desktop\Proyectos\React Native\1.0.4 (IOS y Android)'
-    json_path = r'C:\Users\acapaizlo\Desktop\Proyectos\React Native\1.0.4 (IOS y Android)\locales\es.json'
+    base_path = r'C:\Users\acapaizlo\Desktop\Proyectos\React Native\1.0.5 (IOS y Android) New Stepper'
+    json_path = r'C:\Users\acapaizlo\Desktop\Proyectos\React Native\1.0.5 (IOS y Android) New Stepper\locales\es.json'
     exclude_dir = os.path.join(base_path, 'node_modules')
 
     unused_keys, key_usage = find_unused_json_keys(base_path, json_path, exclude_dir)

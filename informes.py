@@ -123,10 +123,10 @@ run.font.size = Pt(12)
 table.cell(0, 0).paragraphs[0].runs[0].bold = True
 
 # Carpeta de archivos HTML
-ruta_carpeta_html = "C:/Users/acapaizlo/Desktop/Junio"
+ruta_carpeta_html = "C:/Users/acapaizlo/Desktop/Julio"
 
 # Carpeta de imágenes
-ruta_carpeta_imagenes = "C:/Users/acapaizlo/Pictures/Screenshots/Junio"
+ruta_carpeta_imagenes = "C:/Users/acapaizlo/Pictures/Screenshots/Julio"
 
 # Iterar sobre los archivos HTML
 for archivo_html in os.listdir(ruta_carpeta_html):
@@ -271,6 +271,6 @@ for i in range(2):
             run.font.size = Pt(11)
 
 # Guardar el documento en el escritorio
-document.save('C:/Users/acapaizlo/Desktop/informeprueba.docx')
+document.save('C:/Users/acapaizlo/Desktop/informeJulio.docx')
 #abrir el documento
-os.startfile('C:/Users/acapaizlo/Desktop/informeprueba.docx')
+os.startfile('C:/Users/acapaizlo/Desktop/informeJulio.docx')
